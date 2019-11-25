@@ -98,12 +98,12 @@
                     </div>
                     <div class="ResultRight" >
                         <c:forEach var="real" items="${newCity.realEstate}">
-                            <td>${real.street}</td><br/>
-                            <td>${real.amount}</td><br/>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;<b> Address:</b> ${real.street}</td><br/>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;<b> Price: </b> ${real.amount}</td><br/>
                             <td>
                                 <a href=${real.name} target="_blank">
                                     <div>
-                                            ${real.name}
+                                        &nbsp;&nbsp;&nbsp;&nbsp; ${real.name}
                                     </div>
                                 </a>
                             </td><br/><br/>
@@ -121,11 +121,11 @@
                     </div>
                     <div class="ResultRight" >
                         <c:forEach var="restaurant" items="${newCity.restaurants}">
-                            <td><span style="font-weight:bold">${restaurant.name}</span></td><br/>
-                            <td>${restaurant.address}</td><br/>
-                            <td>${restaurant.category}</td><br/>
-                            <td>${restaurant.price}</td><br/>
-                            <td>${restaurant.rating}</td><br/><br/>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp; <b>Name: </b> ${restaurant.name}</td><br/>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp; <b>Address: </b> ${restaurant.address}</td><br/>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp; <b>Category: </b> ${restaurant.category}</td><br/>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp; <b>Price: </b> ${restaurant.price}</td><br/>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp; <b>Rating: </b> ${restaurant.rating}</td><br/><br/>
                         </c:forEach>
                     </div>
                 </div>
