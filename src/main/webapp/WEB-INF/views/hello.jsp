@@ -85,51 +85,48 @@
 
 <c:if test="${not empty newCity}">
     <section class="page-section portfolio" id="details">
-        <div class="container">
             <!-- Portfolio Section Heading -->
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">New City Details</h2>
-            <br>
-            <br>
-            <div class="Result" >
-                <div class="ResultLeft">
-                    Background
-                </div>
-                <div class="ResultRight" >
-                    <h3>Events</h3>
-                    <c:forEach var="event" items="${newCity.events}">
-                        <td>${event}</td><br>
-                    </c:forEach>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <br>
-            <div class="Result" >
-                <div class="ResultLeft">
-                    Background
-                </div>
-                <div class="ResultRight" >
-                    <h3>Restaurants and Groceries</h3>
-                    <c:forEach var="restaurant" items="${newCity.restaurants}">
-                        <td>${restaurant}</td>
-                    </c:forEach>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="Result" >
-                <div class="ResultLeft">
-                    Background
-                </div>
-                <div class="ResultRight" >
-                <h3>Real Estate</h3>
-                    <c:forEach var="real" items="${newCity.realEstate}">
-                        <td>${real}</td>
-                    </c:forEach>
-                </div>
-            </div>
 
-        </div>
+            <div class="container">
+                <div class="Result" >
+                    <div class="ResultLeft">
+                        <img src="${contextPath}/resources/img/event.png" alt="EVENTS" class="resultImage">
+                    </div>
+                    <div class="ResultRight" >
+                        <h3>Real Estate</h3>
+                        <c:forEach var="real" items="${newCity.realEstate}">
+                            <td>${real}</td>
+                        </c:forEach>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="Result" >
+                    <div class="ResultLeft">
+                        Background
+                    </div>
+                    <div class="ResultRight" >
+                        <h3>Restaurants and Groceries</h3>
+                        <c:forEach var="restaurant" items="${newCity.restaurants}">
+                            <td>${restaurant}</td>
+                        </c:forEach>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="Result" >
+                    <div class="ResultLeft">
+                        
+                    </div>
+                    <div class="ResultRight" >
+                        <h3>Events</h3>
+                        <c:forEach var="event" items="${newCity.events}">
+                            <td>${event}</td><br>
+                        </c:forEach>
+                    </div>
+                </div>
+            </div>
     </section>
 </c:if>
 
