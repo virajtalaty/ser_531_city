@@ -96,7 +96,15 @@
                     <div class="ResultRight" >
                         <h3>Real Estate</h3>
                         <c:forEach var="real" items="${newCity.realEstate}">
-                            <td>${real.name}</td>
+                            <td>${real.street}</td><br/>
+                            <td>${real.amount}</td><br/>
+                            <td>
+                                <a href=${real.name} target="_blank">
+                                    <div>
+                                            ${real.name}
+                                    </div>
+                                </a>
+                            </td><br/><br/>
                         </c:forEach>
                     </div>
                 </div>
@@ -109,7 +117,11 @@
                     <div class="ResultRight" >
                         <h3>Restaurants and Groceries</h3>
                         <c:forEach var="restaurant" items="${newCity.restaurants}">
-                            <td>${restaurant.name}</td>
+                            <td><span style="font-weight:bold">${restaurant.name}</span></td><br/>
+                            <td>${restaurant.address}</td><br/>
+                            <td>${restaurant.category}</td><br/>
+                            <td>${restaurant.price}</td><br/>
+                            <td>${restaurant.rating}</td><br/><br/>
                         </c:forEach>
                     </div>
                 </div>
