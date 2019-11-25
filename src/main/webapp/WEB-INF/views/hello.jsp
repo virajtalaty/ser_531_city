@@ -8,7 +8,7 @@
 <head>
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <meta charset="UTF-8">
-    <title>Hello ${name}!</title>
+    <title>New In The City</title>
     <link href="${contextPath}/resources/css/city.min.css" rel="stylesheet">
 </head>
 <body>
@@ -31,14 +31,13 @@
 
         <!-- Masthead Subheading -->
         <p class="masthead-subheading font-weight-light mb-0">Events - Restaurants - Real Estate</p>
-
     </div>
 </header>
 
-<!-- Portfolio Section -->
+
 <section class="page-section portfolio" id="portfolio">
+    <!-- City Div -->
     <div class="container">
-        <!-- Portfolio Section Heading -->
         <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Select City For Details</h2>
         <br>
         <br>
@@ -57,37 +56,33 @@
             </div>
         </form>
     </div>
-</section>
-
-<br>
-<c:if test="${zipCodes.size() > 0}">
-    <section class="page-section portfolio" id="zipcode">
-        <div class="container">
-            <!-- Portfolio Section Heading -->
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Select zip code For Details</h2>
+    <br><br>
+    <!-- Zipcodes Div -->
+    <c:if test="${zipCodes.size() > 0}">
+    <div class="container">
+        <!-- Portfolio Section Heading -->
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Select zip code For Details</h2>
+        <br>
+        <br>
+        <form:form method="get" action="${contextPath}/getDetails" >
+            <div class="control-group">
+                <select class="form-control" id="zipSelected" name="zipSelected">
+                    <c:forEach items="${zipCodes}"  var="zip">
+                        <option value="${zip}">${zip}</option>
+                    </c:forEach>
+                </select>
+            </div>
             <br>
             <br>
-            <form:form method="get" action="${contextPath}/getDetails" >
-                <div class="control-group">
-                    <select class="form-control" id="zipSelected" name="zipSelected">
-                        <c:forEach items="${zipCodes}"  var="zip">
-                            <option value="${zip}">${zip}</option>
-                        </c:forEach>
-                    </select>
-                </div>
-                <br>
-                <br>
-                <div class="form-group" style="text-align: center">
-                    <button type="submit" class="btn btn-primary">Search</button>
-                </div>
-                <input type="hidden" name="citySelected" value="${citySelected}">
-            </form:form>
-        </div>
-    </section>
-</c:if>
+            <div class="form-group" style="text-align: center">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+            <input type="hidden" name="citySelected" value="${citySelected}">
+        </form:form>
+    </div>
+    </c:if>
 
 
-<br>
 <c:if test="${not empty newCity}">
     <section class="page-section portfolio" id="details">
         <div class="container">
@@ -95,26 +90,32 @@
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">New City Details</h2>
             <br>
             <br>
-            <h3>Events</h3>
-            <c:forEach var="event" items="${newCity.events}">
+            <div id="Event" style="width: 33%; float: left; height: 200px; background: red">
+                <h3>Events</h3>
+                <c:forEach var="event" items="${newCity.events}">
                     <td>${event}</td>
-            </c:forEach>
+                </c:forEach>
+            </div>
+            <div id="Restaurant" style="width: 33%; float: left;  height: 200px; background: blue">
+                <h3>Restaurants and Groceries</h3>
+                <c:forEach var="restaurant" items="${newCity.restaurants}">
+                    <td>${restaurant}</td>
+                </c:forEach>
+            </div>
+            <div id="Real Estate" style="width: 33%; float: left;  height: 200px; background: red">
+                <h3>Real Estate</h3>
+                <c:forEach var="real" items="${newCity.realEstate}">
+                    <td>${real}</td>
+                </c:forEach>
+            </div>
 
-            <h3>Restaurants and Groceries</h3>
-            <c:forEach var="restaurant" items="${newCity.restaurants}">
-                <td>${restaurant}</td>
-            </c:forEach>
-
-            <h3>Real Estate</h3>
-            <c:forEach var="real" items="${newCity.realEstate}">
-                <td>${real}</td>
-            </c:forEach>
         </div>
     </section>
 </c:if>
 
 <c:if test="${not empty citySelected}">
     <script type="text/javascript">
+        window.scrollTo(0,document.body.scrollHeight);
         $("#citySelected").val("${citySelected}");
     </script>
 </c:if>
