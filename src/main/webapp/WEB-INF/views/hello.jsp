@@ -132,13 +132,14 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;<b>Event Date: </b>${event.date}<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;<b>Event Time: </b>${event.time}<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;<b>Event Price: </b>${event.minPrice} - ${event.maxPrice}<br>
-                            <br><br>
+                            <br>
                         </c:forEach>
                     </div>
                 </div>
             </div>
     </section>
 </c:if>
+<br><br><br><br><br><br>
 
 <c:if test="${not empty citySelected}">
     <script type="text/javascript">
