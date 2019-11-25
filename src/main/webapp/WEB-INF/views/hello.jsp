@@ -61,7 +61,7 @@
     <c:if test="${zipCodes.size() > 0}">
     <div class="container">
         <!-- Portfolio Section Heading -->
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Select zip code For Details</h2>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Select zip code</h2>
         <br>
         <br>
         <form:form method="get" action="${contextPath}/getDetails" >

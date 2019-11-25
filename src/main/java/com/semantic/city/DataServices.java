@@ -7,21 +7,9 @@ import java.util.ArrayList;
 public class DataServices {
 
     static String serviceEndPoint = "http://104.154.49.211:3030/event/query";
+
     ArrayList<String> fetchZipCodes(String city){
         ArrayList<String> zipCode = new ArrayList<>();
-        String query =  "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +
-                "prefix owl: <http://www.w3.org/2002/07/owl#>" +
-                "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>" +
-                "prefix RestaurantGrocery: <http://www.semanticweb.org/bhawanaprasad/ontologies/2019/10/RestaurantGrocery#> " +
-                "prefix RestaurantGrocery1: <http://www.semanticweb.org/ontologies/2019/10/RestaurantGrocery#> " +
-                "SELECT ?RestaurantName WHERE {?restaurant RestaurantGrocery1:RGName ?RestaurantName }";
-
-        String query2 = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +
-                "prefix owl: <http://www.w3.org/2002/07/owl#>" +
-                "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>" +
-                "prefix RestaurantGrocery1: <http://www.semanticweb.org/ontologies/2019/10/RestaurantGrocery#>" +
-                "SELECT DISTINCT ?Zip where {       ?restaurant RestaurantGrocery1:RGCity \"" + city + "\"; " +
-                " RestaurantGrocery1:hasRGaddress ?y.    ?y RestaurantGrocery1:RGZip_code ?Zip.   }   ";
 
         String zipCodeQuery = "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n" +
                 "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
@@ -32,7 +20,7 @@ public class DataServices {
                 "prefix rg: <http://www.semanticweb.org/ontologies/2019/10/RestaurantGrocery#>\n" +
                 "prefix re: <http://www.semanticweb.org/ontologies/2019/10/real_estate#>\n" +
                 "\n" +
-                "SELECT ?Zip\n" +
+                "SELECT DISTINCT ?Zip\n" +
                 "{\n" +
                 "  {\n" +
                 "    SERVICE <http://104.154.49.211:3030/event/sparql> \n" +
@@ -40,7 +28,7 @@ public class DataServices {
                 "      SELECT DISTINCT ?Zip\n" +
                 "      where\n" +
                 "      {\n" +
-                "        ?event event:eventCity \"Scottsdale\";\n" +
+                "        ?event event:eventCity \""+city+"\";\n" +
                 "                    event:hasEventAddress ?y.\n" +
                 "        ?y event:eventZip ?Zip.        \n" +
                 "      }\n" +
@@ -53,7 +41,7 @@ public class DataServices {
                 "      SELECT DISTINCT ?Zip\n" +
                 "      where\n" +
                 "      {\n" +
-                "          ?restaurant rg:RGCity \"Scottsdale\";\n" +
+                "          ?restaurant rg:RGCity \""+city+"\";\n" +
                 "                  rg:hasRGaddress ?y.\n" +
                 "          ?y rg:RGZip_code ?Zip.        \n" +
                 "      }\n" +
@@ -66,7 +54,7 @@ public class DataServices {
                 "      SELECT DISTINCT ?Zip\n" +
                 "      where\n" +
                 "      {\n" +
-                "          ?realestate re:realestateCity \"Scottsdale\";\n" +
+                "          ?realestate re:realestateCity \""+city+"\";\n" +
                 "                  re:realestateHasAddress ?y.\n" +
                 "          ?y re:realestateZip ?Zip.        \n" +
                 "      }\n" +

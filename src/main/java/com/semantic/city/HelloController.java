@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.xml.crypto.Data;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +23,9 @@ public class HelloController {
     @PostMapping("/getZip")
     public String getZip(HttpServletRequest request, @RequestParam String citySelected, Model model)
     {
-        List<String> zipCodes = new ArrayList<>();
-        zipCodes.add("85281");
-        zipCodes.add("85282");
+        DataServices ds = new DataServices();
+        ds.fetchZipCodes(citySelected);
+        List<String> zipCodes = ds.fetchZipCodes(citySelected);
         request.getSession().setAttribute("zipCodes", zipCodes);
         model.addAttribute("zipCodes", zipCodes);
         model.addAttribute("citySelected", citySelected);
