@@ -114,28 +114,26 @@
                     </div>
                 </div>
             </div>
+
+
             <div class="container">
+
                 <div class="Result" >
+                    <div class="ResultBanner">
+                        <h3>EVENTS</h3>
+                    </div>
                     <div class="ResultLeft">
                         <img src="${contextPath}/resources/img/181015-HCSA-Res-03-Events-banner.jpg" alt="EVENTS" class="resultImage">
-
                     </div>
-                    <div class="ResultRight" >
-                        <h3>Events</h3>
-                        <table>
-                            <thead class="table-success">
-                            <tr>
-                                <th>Event Name</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach var="event" items="${newCity.events}">
-                                <tr>
-                                    <td>${event.name}</td>
-                                </tr>
-                                </c:forEach>
-                            </tbody>
-                        </table>
+                    <div class="ResultRight " >
+                        <c:forEach var="event" items="${newCity.events}">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<b>Event Name: </b>${event.name}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<b>Event Address: </b>${event.address}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<b>Event Date: </b>${event.date}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<b>Event Time: </b>${event.time}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<b>Event Price: </b>${event.minPrice} - ${event.maxPrice}<br>
+                            <br><br>
+                        </c:forEach>
                     </div>
                 </div>
             </div>
