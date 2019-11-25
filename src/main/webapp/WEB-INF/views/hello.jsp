@@ -91,7 +91,7 @@
             <div class="container">
                 <div class="Result" >
                     <div class="ResultLeft">
-                        <img src="${contextPath}/resources/img/event.png" alt="EVENTS" class="resultImage">
+                        <img src="${contextPath}/resources/img/event.png" alt="REAL STATE" class="resultImage">
                     </div>
                     <div class="ResultRight" >
                         <h3>Real Estate</h3>
@@ -104,7 +104,7 @@
             <div class="container">
                 <div class="Result" >
                     <div class="ResultLeft">
-                        Background
+                        <img src="${contextPath}/resources/img/SunBasket.jpg" alt="Restaurants" class="resultImage">
                     </div>
                     <div class="ResultRight" >
                         <h3>Restaurants and Groceries</h3>
@@ -117,7 +117,7 @@
             <div class="container">
                 <div class="Result" >
                     <div class="ResultLeft">
-                        
+                        <img src="${contextPath}/resources/img/181015-HCSA-Res-03-Events-banner.jpg" alt="EVENTS" class="resultImage">
                     </div>
                     <div class="ResultRight" >
                         <h3>Events</h3>
