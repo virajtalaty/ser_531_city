@@ -179,7 +179,11 @@ public class DataServices {
                     break;
                     case "EventAddress": event.setAddress(columnValue.toString());
                     break;
-                    case "RestaurantPrice": restaurant.setPrice(columnValue.toString());
+                    case "RestaurantPrice":
+                        if(columnValue.toString() == "Unavailable")
+                            restaurant.setPrice("**");
+                        else
+                            restaurant.setPrice(columnValue.toString());
                     break;
                     case "RestaurantRating": restaurant.setRating(columnValue.toString().split("\\^")[0]);
                     break;
