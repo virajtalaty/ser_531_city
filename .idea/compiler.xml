@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ser_531_city" />
         <module name="springmvc-xml-jsp" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ser_531_city" target="1.8" />
       <module name="springmvc-xml-jsp" target="1.8" />
     </bytecodeTargetLevel>
   </component>
