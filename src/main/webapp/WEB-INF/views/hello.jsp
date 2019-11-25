@@ -90,11 +90,13 @@
 
             <div class="container">
                 <div class="Result" >
+                    <div class="ResultBanner">
+                        <h4>Real Estate</h4>
+                    </div>
                     <div class="ResultLeft">
                         <img src="${contextPath}/resources/img/event.png" alt="REAL STATE" class="resultImage">
                     </div>
                     <div class="ResultRight" >
-                        <h3>Real Estate</h3>
                         <c:forEach var="real" items="${newCity.realEstate}">
                             <td>${real.street}</td><br/>
                             <td>${real.amount}</td><br/>
@@ -111,11 +113,13 @@
             </div>
             <div class="container">
                 <div class="Result" >
+                    <div class="ResultBanner">
+                        <h4>Restaurants and Groceries</h4>
+                    </div>
                     <div class="ResultLeft">
                         <img src="${contextPath}/resources/img/SunBasket.jpg" alt="Restaurants" class="resultImage">
                     </div>
                     <div class="ResultRight" >
-                        <h3>Restaurants and Groceries</h3>
                         <c:forEach var="restaurant" items="${newCity.restaurants}">
                             <td><span style="font-weight:bold">${restaurant.name}</span></td><br/>
                             <td>${restaurant.address}</td><br/>
@@ -132,18 +136,18 @@
 
                 <div class="Result" >
                     <div class="ResultBanner">
-                        <h3>EVENTS</h3>
+                        <h4>Events</h4>
                     </div>
                     <div class="ResultLeft">
                         <img src="${contextPath}/resources/img/181015-HCSA-Res-03-Events-banner.jpg" alt="EVENTS" class="resultImage">
                     </div>
                     <div class="ResultRight " >
                         <c:forEach var="event" items="${newCity.events}">
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>Event Name: </b>${event.name}<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>Event Address: </b>${event.address}<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>Event Date: </b>${event.date}<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>Event Time: </b>${event.time}<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>Event Price: </b>${event.minPrice} - ${event.maxPrice}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<b>Name: </b>${event.name}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<b>Address: </b>${event.address}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<b>Date: </b>${event.date}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<b>Time: </b>${event.time}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<b>Price: </b>${event.minPrice} - ${event.maxPrice}<br>
                             <br>
                         </c:forEach>
                     </div>
