@@ -181,7 +181,7 @@ public class DataServices {
                     break;
                     case "RestaurantPrice":
                         if(columnValue.toString() == "Unavailable")
-                            restaurant.setPrice("**");
+                            restaurant.setPrice("");
                         else
                             restaurant.setPrice(columnValue.toString());
                     break;
