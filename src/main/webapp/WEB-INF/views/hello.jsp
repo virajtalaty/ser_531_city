@@ -117,13 +117,24 @@
             <div class="container">
                 <div class="Result" >
                     <div class="ResultLeft">
-                        
+
                     </div>
                     <div class="ResultRight" >
                         <h3>Events</h3>
-                        <c:forEach var="event" items="${newCity.events}">
-                            <td>${event}</td><br>
-                        </c:forEach>
+                        <table>
+                            <thead class="table-success">
+                            <tr>
+                                <th>Event Name</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach var="event" items="${newCity.events}">
+                                <tr>
+                                    <td>${event}</td>
+                                </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
