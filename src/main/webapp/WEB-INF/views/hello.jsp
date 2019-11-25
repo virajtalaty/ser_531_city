@@ -96,7 +96,7 @@
                     <div class="ResultRight" >
                         <h3>Real Estate</h3>
                         <c:forEach var="real" items="${newCity.realEstate}">
-                            <td>${real}</td>
+                            <td>${real.name}</td>
                         </c:forEach>
                     </div>
                 </div>
@@ -109,7 +109,7 @@
                     <div class="ResultRight" >
                         <h3>Restaurants and Groceries</h3>
                         <c:forEach var="restaurant" items="${newCity.restaurants}">
-                            <td>${restaurant}</td>
+                            <td>${restaurant.name}</td>
                         </c:forEach>
                     </div>
                 </div>
@@ -130,7 +130,7 @@
                             <tbody>
                                 <c:forEach var="event" items="${newCity.events}">
                                 <tr>
-                                    <td>${event}</td>
+                                    <td>${event.name}</td>
                                 </tr>
                                 </c:forEach>
                             </tbody>

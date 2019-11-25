@@ -151,6 +151,7 @@ public class DataServices {
         ArrayList<Event> eventList = new ArrayList<>();
         ArrayList<Restaurant> restaurantList = new ArrayList<>();
         ArrayList<RealEstate> realEstateList = new ArrayList<>();
+
         ArrayList<Event> finalEventList = new ArrayList<>();
         ArrayList<Restaurant> finalRestaurantList = new ArrayList<>();
         ArrayList<RealEstate> finalRealEstateList = new ArrayList<>();
