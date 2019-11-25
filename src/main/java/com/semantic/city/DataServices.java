@@ -107,7 +107,7 @@ public class DataServices {
                 "        ?y event:eventStreet ?EventAddress.\n" +
                 "        ?EventPrice event:eventMinPrice ?EventMinPrice;\n" +
                 "                    event:eventMaxPrice ?EventMaxPrice.\n" +
-                "        ?y event:eventZip \"85281\".        \n" +
+                "        ?y event:eventZip \""+zipCode+"\".        \n" +
                 "      }\n" +
                 "    }\n" +
                 "  }\n" +
@@ -124,7 +124,7 @@ public class DataServices {
                 "                  rg:RGCategory ?RestaurantCategory;\n" +
                 "                  rg:hasRGaddress ?y.\n" +
                 "        ?y rg:RGStreet ?RestaurantAddress.\n" +
-                "      ?y rg:RGZip_code \"85281\".\n" +
+                "      ?y rg:RGZip_code \""+zipCode+"\".\n" +
                 "    }\n" +
                 "    }\n" +
                 "  }\n" +
@@ -140,7 +140,7 @@ public class DataServices {
                 "                  re:realestateHasAddress ?y;\n" +
                 "                  re:realestatePrice ?RealEstatePrice.\n" +
                 "        ?y re:realestateStreet ?RealEstateAddress.\n" +
-                "                  ?y re:realestateZip \"85281\".\n" +
+                "                  ?y re:realestateZip \""+zipCode+"\".\n" +
                 "      }\n" +
                 "    }\n" +
                 "  }\n" +
@@ -232,12 +232,8 @@ public class DataServices {
         for (String key : finalResultMap.keySet()){
             System.out.println(finalResultMap.get(key));
         }
-
         return finalResultMap;
-
     }
-
-
 
     public static void main(String[] args) {
         DataServices ds = new DataServices();

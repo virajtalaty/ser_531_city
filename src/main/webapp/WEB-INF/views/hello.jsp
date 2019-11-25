@@ -147,7 +147,12 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;<b>Address: </b>${event.address}<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;<b>Date: </b>${event.date}<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;<b>Time: </b>${event.time}<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<b>Price: </b>${event.minPrice} - ${event.maxPrice}<br>
+                            <c:if test="${event.maxPrice == '$0.0'}">
+                                &nbsp;&nbsp;&nbsp;&nbsp;<b>Price: </b>Free<br>
+                            </c:if>
+                            <c:if test="${event.maxPrice != '$0.0'}">
+                                &nbsp;&nbsp;&nbsp;&nbsp;<b>Price: </b>${event.minPrice} - ${event.maxPrice}<br>
+                            </c:if>
                             <br>
                         </c:forEach>
                     </div>
