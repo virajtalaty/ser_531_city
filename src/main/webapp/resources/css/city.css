@@ -73,6 +73,28 @@ body {
   outline: 0 !important;
 }
 
+div.Result
+{
+  width: 100%;
+  float: left;
+  height: 200px;
+  background: red;
+}
+
+div.ResultLeft{
+  width: 20%;
+  background: green;
+  height: 100%;
+  float: left;
+}
+
+div.ResultRight{
+  width: 80%;
+  height: 100%;
+  overflow-y:scroll;
+  float: left;
+}
+
 hr {
   box-sizing: content-box;
   height: 0;

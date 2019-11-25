@@ -9,7 +9,7 @@
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <meta charset="UTF-8">
     <title>New In The City</title>
-    <link href="${contextPath}/resources/css/city.min.css" rel="stylesheet">
+    <link href="${contextPath}/resources/css/city.css" rel="stylesheet">
 </head>
 <body>
 
@@ -90,23 +90,43 @@
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">New City Details</h2>
             <br>
             <br>
-            <div id="Event" style="width: 33%; float: left; height: 200px; background: red">
-                <h3>Events</h3>
-                <c:forEach var="event" items="${newCity.events}">
-                    <td>${event}</td>
-                </c:forEach>
+            <div class="Result" >
+                <div class="ResultLeft">
+                    Background
+                </div>
+                <div class="ResultRight" >
+                    <h3>Events</h3>
+                    <c:forEach var="event" items="${newCity.events}">
+                        <td>${event}</td><br>
+                    </c:forEach>
+                </div>
             </div>
-            <div id="Restaurant" style="width: 33%; float: left;  height: 200px; background: blue">
-                <h3>Restaurants and Groceries</h3>
-                <c:forEach var="restaurant" items="${newCity.restaurants}">
-                    <td>${restaurant}</td>
-                </c:forEach>
+        </div>
+        <div class="container">
+            <br>
+            <div class="Result" >
+                <div class="ResultLeft">
+                    Background
+                </div>
+                <div class="ResultRight" >
+                    <h3>Restaurants and Groceries</h3>
+                    <c:forEach var="restaurant" items="${newCity.restaurants}">
+                        <td>${restaurant}</td>
+                    </c:forEach>
+                </div>
             </div>
-            <div id="Real Estate" style="width: 33%; float: left;  height: 200px; background: red">
+        </div>
+        <div class="container">
+            <div class="Result" >
+                <div class="ResultLeft">
+                    Background
+                </div>
+                <div class="ResultRight" >
                 <h3>Real Estate</h3>
-                <c:forEach var="real" items="${newCity.realEstate}">
-                    <td>${real}</td>
-                </c:forEach>
+                    <c:forEach var="real" items="${newCity.realEstate}">
+                        <td>${real}</td>
+                    </c:forEach>
+                </div>
             </div>
 
         </div>
