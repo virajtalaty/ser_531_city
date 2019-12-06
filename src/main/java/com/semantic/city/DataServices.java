@@ -151,6 +151,7 @@ public class DataServices {
         ArrayList<Event> eventList = new ArrayList<>();
         ArrayList<Restaurant> restaurantList = new ArrayList<>();
         ArrayList<RealEstate> realEstateList = new ArrayList<>();
+
         ArrayList<Event> finalEventList = new ArrayList<>();
         ArrayList<Restaurant> finalRestaurantList = new ArrayList<>();
         ArrayList<RealEstate> finalRealEstateList = new ArrayList<>();
@@ -178,7 +179,11 @@ public class DataServices {
                     break;
                     case "EventAddress": event.setAddress(columnValue.toString());
                     break;
-                    case "RestaurantPrice": restaurant.setPrice(columnValue.toString());
+                    case "RestaurantPrice":
+                        if(columnValue.toString() == "Unavailable")
+                            restaurant.setPrice("");
+                        else
+                            restaurant.setPrice(columnValue.toString());
                     break;
                     case "RestaurantRating": restaurant.setRating(columnValue.toString().split("\\^")[0]);
                     break;
@@ -227,12 +232,8 @@ public class DataServices {
         for (String key : finalResultMap.keySet()){
             System.out.println(finalResultMap.get(key));
         }
-
         return finalResultMap;
-
     }
-
-
 
     public static void main(String[] args) {
         DataServices ds = new DataServices();

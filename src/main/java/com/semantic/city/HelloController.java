@@ -1,6 +1,9 @@
 package com.semantic.city;
 
 import com.semantic.models.City;
+import com.semantic.models.Event;
+import com.semantic.models.RealEstate;
+import com.semantic.models.Restaurant;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.xml.crypto.Data;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -36,27 +40,21 @@ public class HelloController {
     public String getDetails(HttpServletRequest request, @RequestParam String citySelected,
                              @RequestParam String zipSelected, Model model)
     {
-        List<String> zipCodes = (List<String>)request.getSession().getAttribute("empList");
+        List<String> zipCodes = (List<String>)request.getSession().getAttribute("zipCodes");
         model.addAttribute("zipCodes", zipCodes);
         model.addAttribute("citySelected", citySelected);
         model.addAttribute("zipSelected", zipSelected);
 
+        DataServices ds = new DataServices();
+        HashMap cityDetails = ds.fetchCityResults(zipSelected);
+        ArrayList<Event> eventList = (ArrayList<Event>) cityDetails.get("Event");
+        ArrayList<RealEstate> realEstateList = (ArrayList<RealEstate>) cityDetails.get("RealEstate");
+        ArrayList<Restaurant> restaurantList = (ArrayList<Restaurant>) cityDetails.get("Restaurant");
+
         City newCity = new City();
-        List<String> eventList = new ArrayList<>();
-        List<String> realEstateList = new ArrayList<>();
-        List<String> restaurantList = new ArrayList<>();
-
-        eventList.add("Event 1");
-        eventList.add("Event 2");
-        realEstateList.add("RE 1");
-        realEstateList.add("RE 2");
-        restaurantList.add("RG 1");
-        restaurantList.add("RG 2");
-
         newCity.setEvents(eventList);
         newCity.setRealEstate(realEstateList);
         newCity.setRestaurants(restaurantList);
-
         model.addAttribute("newCity", newCity);
 
         return "hello";

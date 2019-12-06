@@ -7,31 +7,31 @@ import java.util.List;
 
 public class City implements Serializable {
 
-    List<String> restaurants = new ArrayList<>();
-    List<String> events = new ArrayList<>();
-    List<String> realEstate = new ArrayList<>();
+    List<Restaurant> restaurants = new ArrayList<>();
+    List<Event> events = new ArrayList<>();
+    List<RealEstate> realEstate = new ArrayList<>();
 
-    public List<String> getRestaurants() {
+    public List<Restaurant> getRestaurants() {
         return restaurants;
     }
 
-    public void setRestaurants(List<String> restaurants) {
+    public void setRestaurants(List<Restaurant> restaurants) {
         this.restaurants = restaurants;
     }
 
-    public List<String> getEvents() {
+    public List<Event> getEvents() {
         return events;
     }
 
-    public void setEvents(List<String> events) {
+    public void setEvents(List<Event> events) {
         this.events = events;
     }
 
-    public List<String> getRealEstate() {
+    public List<RealEstate> getRealEstate() {
         return realEstate;
     }
 
-    public void setRealEstate(List<String> realEstate) {
+    public void setRealEstate(List<RealEstate> realEstate) {
         this.realEstate = realEstate;
     }
 }

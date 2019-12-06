@@ -90,45 +90,77 @@
 
             <div class="container">
                 <div class="Result" >
+                    <div class="ResultBanner">
+                        <h4>Real Estate</h4>
+                    </div>
                     <div class="ResultLeft">
-                        <img src="${contextPath}/resources/img/event.png" alt="EVENTS" class="resultImage">
+                        <img src="${contextPath}/resources/img/event.png" alt="REAL STATE" class="resultImage">
                     </div>
                     <div class="ResultRight" >
-                        <h3>Real Estate</h3>
                         <c:forEach var="real" items="${newCity.realEstate}">
-                            <td>${real}</td>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;<b> Address:</b> ${real.street}</td><br/>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;<b> Price: </b> ${real.amount}</td><br/>
+                            <td>
+                                <a href=${real.name} target="_blank">
+                                    <div>
+                                        &nbsp;&nbsp;&nbsp;&nbsp; ${real.name}
+                                    </div>
+                                </a>
+                            </td><br/><br/>
                         </c:forEach>
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="Result" >
+                    <div class="ResultBanner">
+                        <h4>Restaurants and Groceries</h4>
+                    </div>
                     <div class="ResultLeft">
-                        Background
+                        <img src="${contextPath}/resources/img/SunBasket.jpg" alt="Restaurants" class="resultImage">
                     </div>
                     <div class="ResultRight" >
-                        <h3>Restaurants and Groceries</h3>
                         <c:forEach var="restaurant" items="${newCity.restaurants}">
-                            <td>${restaurant}</td>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp; <b>Name: </b> ${restaurant.name}</td><br/>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp; <b>Address: </b> ${restaurant.address}</td><br/>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp; <b>Category: </b> ${restaurant.category}</td><br/>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp; <b>Price: </b> ${restaurant.price}</td><br/>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp; <b>Rating: </b> ${restaurant.rating}</td><br/><br/>
                         </c:forEach>
                     </div>
                 </div>
             </div>
+
+
             <div class="container">
+
                 <div class="Result" >
-                    <div class="ResultLeft">
-                        
+                    <div class="ResultBanner">
+                        <h4>Events</h4>
                     </div>
-                    <div class="ResultRight" >
-                        <h3>Events</h3>
+                    <div class="ResultLeft">
+                        <img src="${contextPath}/resources/img/181015-HCSA-Res-03-Events-banner.jpg" alt="EVENTS" class="resultImage">
+                    </div>
+                    <div class="ResultRight " >
                         <c:forEach var="event" items="${newCity.events}">
-                            <td>${event}</td><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<b>Name: </b>${event.name}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<b>Address: </b>${event.address}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<b>Date: </b>${event.date}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<b>Time: </b>${event.time}<br>
+                            <c:if test="${event.maxPrice == '$0.0'}">
+                                &nbsp;&nbsp;&nbsp;&nbsp;<b>Price: </b>Free<br>
+                            </c:if>
+                            <c:if test="${event.maxPrice != '$0.0'}">
+                                &nbsp;&nbsp;&nbsp;&nbsp;<b>Price: </b>${event.minPrice} - ${event.maxPrice}<br>
+                            </c:if>
+                            <br>
                         </c:forEach>
                     </div>
                 </div>
             </div>
     </section>
 </c:if>
+<br><br><br><br><br><br>
 
 <c:if test="${not empty citySelected}">
     <script type="text/javascript">
