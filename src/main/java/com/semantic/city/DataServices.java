@@ -257,9 +257,6 @@ public class DataServices {
         finalResultMap.put("Event",finalEventList);
         finalResultMap.put("Restaurant",finalRestaurantList);
         finalResultMap.put("RealEstate",finalRealEstateList);
-        for (String key : finalResultMap.keySet()){
-            System.out.println(finalResultMap.get(key));
-        }
         return finalResultMap;
     }
 
