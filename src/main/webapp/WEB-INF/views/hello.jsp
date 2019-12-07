@@ -47,6 +47,9 @@
                     <option value="Tempe">Tempe</option>
                     <option value="Phoenix">Phoenix</option>
                     <option value="Scottsdale">Scottsdale</option>
+                    <option value="New York">New York</option>
+                    <option value="Los Angeles">Los Angeles</option>
+                    <option value="San Francisco">San Francisco</option>
                 </select>
             </div>
             <br>
@@ -74,7 +77,45 @@
             </div>
             <br>
             <br>
-            <div class="form-group" style="text-align: center">
+            <div style = "width:100%">
+                <div style ="width:33%; float:left">
+                    <h4>Real Estate Filter By Price</h4>
+                    <div class="control-group">
+                        <select class="form-control" id="realEstateFilter" name="realEstateFilter">
+                            <option value="LtoH">Low to High</option>
+                            <option value="HtoL">High to Low</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style ="width:33%; float:left">
+                    <h4>Restaurant Filter By Ratings</h4>
+                    <div class="control-group">
+                        <select class="form-control" id="restaurantFilter" name="restaurantFilter">
+                            <option value="LtoH">Low to High</option>
+                            <option value="HtoL">High to Low</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style ="width:33%; float:left">
+                    <h4>Event Filter By Price</h4>
+                    <div class="control-group">
+                        <select class="form-control" id="eventFilter" name="eventFilter">
+                            <option value="LtoH">Low to High</option>
+                            <option value="HtoL">High to Low</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div class="form-group" style="text-align: center;margin-top: 10px">
                 <button type="submit" class="btn btn-primary">Search</button>
             </div>
             <input type="hidden" name="citySelected" value="${citySelected}">

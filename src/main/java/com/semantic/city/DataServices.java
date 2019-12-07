@@ -81,7 +81,7 @@ public class DataServices {
         return zipCode;
     }
 
-    HashMap fetchCityResults(String zipCode){
+    HashMap fetchCityResults(String zipCode, String realEstateFilter, String restaurantFilter, String eventFilter){
         String query = "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n" +
                 "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
                 "PREFIX xml: <http://www.w3.org/XML/1998/namespace/>\n" +
@@ -108,7 +108,16 @@ public class DataServices {
                 "        ?EventPrice event:eventMinPrice ?EventMinPrice;\n" +
                 "                    event:eventMaxPrice ?EventMaxPrice.\n" +
                 "        ?y event:eventZip \""+zipCode+"\".        \n" +
-                "      }\n" +
+                "      }\n";
+                if(eventFilter.equals("LtoH"))
+                {
+                    query = query + "ORDER BY (?EventMinPrice)";
+                }
+                else
+                {
+                    query = query + "ORDER BY DESC (?EventMinPrice)";
+                }
+                query = query +
                 "    }\n" +
                 "  }\n" +
                 "  UNION\n" +
@@ -125,7 +134,16 @@ public class DataServices {
                 "                  rg:hasRGaddress ?y.\n" +
                 "        ?y rg:RGStreet ?RestaurantAddress.\n" +
                 "      ?y rg:RGZip_code \""+zipCode+"\".\n" +
-                "    }\n" +
+                "    }\n";
+                if(restaurantFilter.equals("LtoH"))
+                {
+                    query = query + "ORDER BY (?RestaurantRating)";
+                }
+                else
+                {
+                    query = query + "ORDER BY DESC (?RestaurantRating)";
+                }
+                query = query +
                 "    }\n" +
                 "  }\n" +
                 "  \n" +
@@ -141,7 +159,17 @@ public class DataServices {
                 "                  re:realestatePrice ?RealEstatePrice.\n" +
                 "        ?y re:realestateStreet ?RealEstateAddress.\n" +
                 "                  ?y re:realestateZip \""+zipCode+"\".\n" +
-                "      }\n" +
+                "      }\n";
+
+        if(realEstateFilter.equals("LtoH"))
+        {
+            query = query + "ORDER BY (?RealEstatePrice)";
+        }
+        else
+        {
+            query = query + "ORDER BY DESC (?RealEstatePrice)";
+        }
+        query = query +
                 "    }\n" +
                 "  }\n" +
                 "}";
@@ -235,8 +263,4 @@ public class DataServices {
         return finalResultMap;
     }
 
-    public static void main(String[] args) {
-        DataServices ds = new DataServices();
-        ds.fetchCityResults("Scottsdale");
-   }
 }

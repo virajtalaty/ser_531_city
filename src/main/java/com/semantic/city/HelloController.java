@@ -38,7 +38,8 @@ public class HelloController {
 
     @GetMapping("/getDetails")
     public String getDetails(HttpServletRequest request, @RequestParam String citySelected,
-                             @RequestParam String zipSelected, Model model)
+                             @RequestParam String zipSelected, @RequestParam String realEstateFilter,
+                             @RequestParam String restaurantFilter, @RequestParam String eventFilter, Model model)
     {
         List<String> zipCodes = (List<String>)request.getSession().getAttribute("zipCodes");
         model.addAttribute("zipCodes", zipCodes);
@@ -46,7 +47,7 @@ public class HelloController {
         model.addAttribute("zipSelected", zipSelected);
 
         DataServices ds = new DataServices();
-        HashMap cityDetails = ds.fetchCityResults(zipSelected);
+        HashMap cityDetails = ds.fetchCityResults(zipSelected, realEstateFilter, restaurantFilter, eventFilter);
         ArrayList<Event> eventList = (ArrayList<Event>) cityDetails.get("Event");
         ArrayList<RealEstate> realEstateList = (ArrayList<RealEstate>) cityDetails.get("RealEstate");
         ArrayList<Restaurant> restaurantList = (ArrayList<Restaurant>) cityDetails.get("Restaurant");
